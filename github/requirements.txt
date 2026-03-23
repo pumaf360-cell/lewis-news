@@ -1,0 +1,5 @@
+tavily-python
+google-genai
+python-dotenv
+apify-client
+requests
