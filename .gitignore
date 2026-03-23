@@ -1,0 +1,7 @@
+# 保密防諜：永遠不把金鑰上傳！
+.env
+
+# Python 暫存檔
+__pycache__/
+*.pyc
+*.pyo
