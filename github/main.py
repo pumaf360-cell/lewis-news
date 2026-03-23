@@ -144,30 +144,3 @@ if __name__ == "__main__":
         # 啟動推播 (雙管齊下)
         print(send_telegram_message(report, TG_TOKEN, TG_CHAT_ID))
         print(send_line_messaging_api(report, LINE_TOKEN, LINE_USER))
-
-        # 網頁生成：動態把報告寫成 index.html 給 GitHub Pages 讀取
-        html_content = f"""<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LH44 AI 情報大腦</title>
-<style>
-    body {{ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #1a1a1a; color: #f5f5f5; margin: 0; padding: 20px; display: flex; justify-content: center; }}
-    .container {{ max-width: 800px; width: 100%; background: #2d2d2d; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }}
-    h1 {{ color: #e10600; text-align: center; border-bottom: 2px solid #e10600; padding-bottom: 10px; margin-top: 0; }}
-    pre {{ white-space: pre-wrap; font-size: 1.1rem; line-height: 1.8; color: #ddd; font-family: inherit; }}
-    .footer {{ text-align: center; margin-top: 20px; font-size: 0.9rem; color: #888; border-top: 1px solid #444; padding-top: 15px; }}
-</style>
-</head>
-<body>
-    <div class="container">
-        <h1>🏎️ Lewis Hamilton AI 自動情報站</h1>
-        <pre>{report}</pre>
-        <div class="footer">本網頁與推播由 GitHub Actions 每日自動生成與發行</div>
-    </div>
-</body>
-</html>"""
-        with open("index.html", "w", encoding="utf-8") as f:
-            f.write(html_content)
-        print("[系統] 🌐 成功產生 index.html 首頁檔供 GitHub 讀取！")
